@@ -21,7 +21,7 @@ const CONFIG = {
     'https://www.googleapis.com/auth/drive.metadata.read',
     'https://www.googleapis.com/auth/userinfo.profile',
     'https://www.googleapis.com/auth/userinfo.email'
-].join(' ')
+].join(' '),
 
     DISCOVERY_DOCS: [
         'https://sheets.googleapis.com/$discovery/rest?version=v4',
