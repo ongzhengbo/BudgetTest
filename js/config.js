@@ -15,7 +15,13 @@ const CONFIG = {
     APP_TYPE_VALUE: 'budget',
 
     // Permissions needed by the app.
-    SCOPES: 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.metadata.readonly https://www.googleapis.com/auth/userinfo.profile',
+    SCOPES: [
+    'https://www.googleapis.com/auth/spreadsheets',
+    'https://www.googleapis.com/auth/drive.file',
+    'https://www.googleapis.com/auth/drive.metadata.read',
+    'https://www.googleapis.com/auth/userinfo.profile',
+    'https://www.googleapis.com/auth/userinfo.email'
+].join(' ')
 
     DISCOVERY_DOCS: [
         'https://sheets.googleapis.com/$discovery/rest?version=v4',
