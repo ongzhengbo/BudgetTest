@@ -23,6 +23,18 @@
                 <div id="signin-btn"></div>
             </div>
 
+            <button id="reconnect-sheets-btn" class="btn-primary hidden" onclick="AuthManager.reconnectSheets()">
+    Reconnect Google Sheets
+</button>
+
+<button id="reset-google-login-btn" class="btn-secondary hidden" onclick="AuthManager.resetGoogleLogin()">
+    Reset Google Login
+</button>
+
+<p id="auth-status" class="auth-status">
+    Sign in once. The app will remember this browser next time.
+</p>
+
             <div id="user-info" class="user-info hidden">
                 <span id="user-name"></span>
                 <button onclick="app.logout()" class="btn-secondary">Logout</button>
