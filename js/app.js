@@ -173,22 +173,15 @@ const app = {
     },
 
     async createNewBudget(button) {
-    const user = AuthManager.getCurrentUser();
+        const user = AuthManager.getCurrentUser();
+        if (!user) {
+            alert('Please sign in first.');
+            return;
+        }
 
-    if (!user) {
-        alert('Please sign in first.');
-        return;
-    }
-
-    if (!AuthManager.getAccessToken()) {
-        alert('Please reconnect Google Sheets access before creating a budget.');
-        await AuthManager.requestAccessToken('consent');
-        return;
-    }
-
-    const username = user.name
-        .replace(/\s+/g, '_')
-        .replace(/[^a-zA-Z0-9_]/g, '');
+        const username = user.name
+            .replace(/\s+/g, '_')
+            .replace(/[^a-zA-Z0-9_]/g, '');
 
         const originalText = button ? button.textContent : '';
         if (button) {
