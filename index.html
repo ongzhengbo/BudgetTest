@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheZ Budgetting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+</head>
+<body>
+    <div class="app-shell">
+        <header class="main-header">
+            <div class="brand">
+                <div class="brand-icon">▣</div>
+                <div>
+                    <h1>SheZ Budgetting</h1>
+                    <p id="today-label">Money buckets that split income automatically</p>
+                </div>
+            </div>
+
+            <div id="auth-section" class="auth-section">
+                <div id="signin-btn"></div>
+            </div>
+
+            <div id="user-info" class="user-info hidden">
+                <span id="user-name"></span>
+                <button onclick="app.logout()" class="btn-secondary">Logout</button>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <section id="login-view" class="view">
+                <div class="login-card">
+                    <div class="login-icon">💰</div>
+                    <h2>Your budget, split automatically.</h2>
+                    <p>Add income once, then SheZ Budgetting divides it into buckets like Spending, Savings, Investment, and Emergency Fund.</p>
+                    <div id="google-signin-btn"></div>
+                    <button id="reconnect-sheets-btn" class="btn-primary reconnect-button hidden" onclick="AuthManager.reconnectSheets()">Reconnect Google Sheets</button>
+                    <p id="auth-status" class="auth-status">Sign in once. This browser will remember you next time.</p>
+                </div>
+            </section>
+
+            <section id="dashboard-view" class="view hidden">
+                <div class="dashboard-header">
+                    <div>
+                        <h2>My Budgets</h2>
+                        <p>Choose an existing Google Sheet budget or create a new one.</p>
+                    </div>
+                    <button onclick="app.createNewBudget(this)" class="btn-primary">+ New Budget</button>
+                </div>
+
+                <h3 class="section-title">Owned by me</h3>
+                <div id="budget-list" class="budget-grid"></div>
+
+                <h3 class="section-title">Shared with me</h3>
+                <div id="shared-list" class="budget-grid"></div>
+            </section>
+
+            <section id="budget-view" class="view hidden">
+                <div id="budget-dashboard"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/sheets-api.js"></script>
+    <script src="js/permissions.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/budget-module.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
